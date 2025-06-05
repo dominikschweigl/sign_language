@@ -48,7 +48,7 @@ for idx, row in labels_df.iterrows():
                 augmented_df.loc[len(augmented_df)] = [label, filename + "_rotated_90.jpg"]
                 
                 # img2 = img.rotate(180)
-                # dst_path = os.path.join(output_folder,  filename + "rotated_180.jpg")
+                # dst_path = os.path.join(output_folder,  filename + "_rotated_180.jpg")
                 # img2.save(dst_path)
                 # augmented_df.loc[len(augmented_df)] = [label, filename + "_rotate_180.jpg"]
                 
