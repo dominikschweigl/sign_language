@@ -1,0 +1,186 @@
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 84.33%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 88.04%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 86.13%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.57%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 85.65%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 84.05%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 83.74%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 85.35%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 85.24%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 81.56%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 84.93%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 86.01%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 84.91%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 83.91%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 85.32%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.24%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 85.21%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 86.49%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 84.19%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 86.07%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 85.24%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.29%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 85.52%
+
+🔍 Testing combination: {'epochs': 1, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 84.66%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 83.77%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 83.36%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 83.74%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.07%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 83.99%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 84.27%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 83.66%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 83.91%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 85.02%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 82.86%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 86.79%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 84.05%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 84.08%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 86.71%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 86.40%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 81.00%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 84.13%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 85.96%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 82.75%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 85.79%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 85.24%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 83.11%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 86.60%
+
+🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 87.43%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.07%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 86.62%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 83.47%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.49%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 81.25%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 82.89%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.41%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 84.41%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 86.60%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.71%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 85.68%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 85.13%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.27%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 86.40%
