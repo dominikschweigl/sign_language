@@ -17,3 +17,7 @@ with 5 epochs:
 around 15 min. training time
 Validation Accuracy: 88.53%
 Training Accuracy: 95.78%
+
+
+06.Juni:
+Autoencoder isch gagge. Guete nocht
