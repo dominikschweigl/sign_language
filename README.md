@@ -19,5 +19,5 @@ Validation Accuracy: 88.53%
 Training Accuracy: 95.78%
 
 
-06.Juni:
-Autoencoder isch gagge. Guete nocht
+07.Juni:
+Autoencoder is good, but just CNN is better for some reason.
