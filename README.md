@@ -23,3 +23,6 @@ SVM does not work with high dimensional data.
 Then used pca to get good feature extraction. Experimented with number of components.
 
 Chose 500 components to get 95% of explained variance.
+
+07.Juni:
+Autoencoder is good, but just CNN is better for some reason.

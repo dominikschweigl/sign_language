@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 not augmented data, but with balancing:
+=======
+>>>>>>> f547d8b26c7d13467fcb7bc5d329bc0f53f3e7f3
 
 🔍 Testing combination: {'epochs': 1, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
 ✅ Accuracy: 84.33%
@@ -144,6 +147,7 @@ not augmented data, but with balancing:
 🔍 Testing combination: {'epochs': 3, 'lr': 0.0005, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
 ✅ Accuracy: 87.43%
 
+<<<<<<< HEAD
 
 🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
 ✅ Accuracy: 86.24%
@@ -1334,3 +1338,46 @@ Epoch 2/40 — Train Loss: 3.6022 — Train Acc: 2.96%
            → Val Loss: 3.5851
 Epoch 3/40 — Train Loss: 3.5991 — Train Acc: 3.05%
            → Val Loss: 3.5844
+=======
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.07%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 86.62%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 83.47%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.49%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 81.25%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 32, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 82.89%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.41%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 84.41%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.2, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 86.60%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.71%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 85.68%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.001, 'batch_size': 64, 'dropout': 0.3, 'conv_channels': [64, 128, 256]}
+✅ Accuracy: 85.13%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [16, 32, 64]}
+✅ Accuracy: 85.27%
+
+🔍 Testing combination: {'epochs': 5, 'lr': 0.0005, 'batch_size': 32, 'dropout': 0.2, 'conv_channels': [32, 64, 128]}
+✅ Accuracy: 86.40%
+>>>>>>> f547d8b26c7d13467fcb7bc5d329bc0f53f3e7f3
