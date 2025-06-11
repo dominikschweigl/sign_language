@@ -19,13 +19,13 @@
 %\usepackage{epsfig} % for postscript graphics files
 %\usepackage{mathptmx} % assumes new font selection scheme installed
 %\usepackage{times} % assumes new font selection scheme installed
-%\usepackage{amsmath} % assumes amsmath package installed
 %\usepackage{amssymb}  % assumes amsmath package installed
 \usepackage{multicol}
 \usepackage{tcolorbox}
 \usepackage{cuted,tcolorbox,lipsum}
 \usepackage{xcolor}
 \usepackage{amsmath}
+\usepackage{float}
 
 \title{\LARGE \bf
 Introduction to Machine Learning (SS 2025)\\ Programming Project
@@ -235,7 +235,7 @@ The CNN classifier yiels significantly better results than the SVM classifier.
 The final accuracies are shown in Table~\ref{tab:classifier_accuracy}.
 
 
-\begin{table}[h]
+\begin{table}[H]
   \centering
   \begin{tabular}{|l|c|c|}
     \hline
@@ -274,7 +274,7 @@ as the sign V.
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=\linewidth]{../images/class_accuracy_cnn.jpg}
+  \includegraphics[width=\linewidth]{../images/class_accuracy_cnn.png}
   \caption{Per-class precision and recall of CNN classifier.}
   \label{fig:class_precision_recall}
 \end{figure}
