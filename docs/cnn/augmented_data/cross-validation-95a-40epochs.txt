@@ -1,0 +1,20 @@
+Model CNN 32-64-128 dropout=0.3 learning-rate=0.001 40 epochs
+This is the model with 99% validation accuracy
+
+🔁 Fold 1/5
+✅ Fold 1 Accuracy: 95.49%
+
+🔁 Fold 2/5
+✅ Fold 2 Accuracy: 93.41%
+
+🔁 Fold 3/5
+✅ Fold 3 Accuracy: 95.04%
+
+🔁 Fold 4/5
+✅ Fold 4 Accuracy: 95.29%
+
+🔁 Fold 5/5
+✅ Fold 5 Accuracy: 94.99%
+✅ Average Accuracy: 94.84%
+
+0.9484378359099012
