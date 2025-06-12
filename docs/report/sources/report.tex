@@ -141,7 +141,7 @@ The CNN is implemented using PyTorch. Figure 1 shows the chosen neural network a
 \begin{figure*}[htbp]
     \centering
     \includegraphics[width=\textwidth]{../images/sign_lang_model.onnx.png}
-    \caption{Architecture of the CNN classifier. The CNN consists of 3 convolutional layers with 32, 64, and 128 channels respectively with ReLU activation function and 2 x 2 Pooling Layers. The Reshape layer converts the tensors of the convolutional layers to a 1 dimensional vector for the Linear (GeMM - General matrix multiplication) layers}
+    \caption{Architecture of the CNN classifier. The CNN consists of 3 convolutional layers with 32, 64, and 128 channels respectively with ReLU activation function and 2 x 2 Pooling Layers. The Reshape layer converts the tensors of the convolutional layers to a 1 dimensional vector for the Linear (GeMM - General matrix multiplication) layers.}
     \label{fig:cnn}
 \end{figure*}
 
@@ -221,7 +221,7 @@ hyperparameters as well as the final choice are depicted in Table~\ref{fig:hyper
     & $C$ & $\gamma$ & $d$ & coef0 & Kernel & \multicolumn{2}{c|}{multi-class decision scheme} \\
     \hline
     Bounds & [0.01, 1000] & [0.0001, 0.1] & [2, 4] & [0, 1] & \{Linear, Poly, RBF\} & \multicolumn{2}{c|}{\{OvO, OvR\}} \\
-    Selection & 6 & 0.01 & 3 & 1 & Poly & \multicolumn{2}{c|}{OvO} \\
+    Selection & 6 & 0.01 & 3 & 1 & Poly & \multicolumn{2}{c|}{OvR} \\
     \hline
   \end{tabular}
   \caption{Hyperparameter Selection for the CNN and SVM classifier.}
@@ -237,15 +237,15 @@ The final accuracies are shown in Table~\ref{tab:classifier_accuracy}.
 
 \begin{table}[H]
   \centering
-  \begin{tabular}{|l|c|c|}
+  \begin{tabular}{|l|c|c|c|}
     \hline
-    & Train set & Validation set\\
+    & Train set & Validation set & Test set\\
     \hline
-    CNN & 98.89\% & 98.56\% \\
-    SVM & 100.00\% & 89.48\% \\
+    CNN & 98.89\% & 98.56\% & 96.25\%\\
+    SVM & 97.76\% & 87.62\% & 85.21\%\\
     \hline
   \end{tabular}
-  \caption{Final classifier accuracy on training and validation.}
+  \caption{Final classifier accuracy on training, validation, and testing.}
   \label{tab:classifier_accuracy}
 \end{table}
 
@@ -257,8 +257,8 @@ which explains the significantly lower validation accuracy.
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=\linewidth]{../images/cm_comparison.jpg}
-  \caption{Confusion matrices for CNN and SVM classifiers with ommitted diagonal.}
+  \includegraphics[width=\linewidth]{../images/cm_comparison.png}
+  \caption{Confusion matrices for CNN and SVM classifiers with ommitted diagonal, predicted value (left) and actual value (bottom).}
   \label{fig:cm}
 \end{figure}
 
@@ -282,18 +282,12 @@ as the sign V.
 \section{Discussion}
 \label{sec:discuss}
 
-Initially, it was attempted to use the SVM classifier on the unprocessed image input
-without normalization of pixel values and feature extraction. This led to no convergence
-and the training had to be interrupted after a full day of training without result. While
-SVMs can work for small image input like the MNIST datasets 28 x 28 images, it does not
-scale to 128 x 128 images. It seems as the achieved results are already optimal for the 
-SVM classifier architecture and are already over the model size requirements for this report.
-The efforts to decrease the model size from the initial 110 MB by using the OvR strategy 
-and polynomial kernels instead of rbf kernels for better compressibility and reduce the number of PCA components from 500
-to 200, which lowered the explained variance from 95\% to 90\%, the model size was able to fit in 
-the limit of 50 MB for this task. Surprisingly, these optimizations did not hurt the model performance.
-Another promising approach would be to use the SVM classifier on image features extracted 
-by an auto encoder instead of PCA.
+Initially, an attempt was made to train the SVM classifier directly on raw image inputs without pixel normalization or feature extraction. This approach failed to converge, and training had to be stopped after running for an entire day without producing any meaningful results. While SVMs can handle small image inputs such as the 28\texttimes 28 images in the MNIST dataset, they do not scale well to larger inputs like 128\texttimes 128 images.
+
+The results achieved after proper preprocessing and dimensionality reduction appear to be near-optimal for the chosen SVM architecture and already exceed the model size limits defined for this task. Despite efforts to reduce the model size -- from an initial 110\,MB -- by switching from an RBF to a polynomial kernel for better compressibility, applying the One-vs-Rest (OvR) strategy, and reducing the number of PCA components from 500 to 200 thereby lowering the explained variance from 95\% to 90\%, the model still exceeded the 50\,MB limit. The final model had a combined size of approximately 60\,MB, with 50\,MB attributed to the SVM classifier and 10\,MB to the PCA model.
+Surprisingly, these optimizations did not negatively impact classification performance. Further reduction of the model size could only be achieved by removing the additional data augmentation and reverting to the balanced dataset, which resulted in a roughly 1\% drop in accuracy. This reduced the model size to 37\,MB.
+
+A potentially more promising direction would be to replace PCA with an autoencoder for feature extraction. This could allow the SVM to operate on more compact and informative representations, potentially improving both accuracy and model size.
 
 Further improvements to the CNN classifier could likely be achieved by expanding the dataset and 
 applying more extensive data augmentation. These factors appear to have been the most critical contributors to the CNN's 
@@ -304,38 +298,22 @@ This issue was addressed through targeted data augmentation for class balancing,
 Following this augmentation, a second round of random search was conducted, which revealed clearer trends and distinctions 
 in the effectiveness of different hyperparameter combinations.
 
-{\color{blue}
-\begin{itemize}
-	\item Analyze the results presented in the report (comment on what contributed to the good or bad results). If your method does not work well, try to analyze why this is the case.
-	\item Describe very briefly what you tried but did not keep for your final implementation (e.g. things you tried but that did not work, discarded ideas, etc.).
-	\item How could you try to improve your results? What else would you want to try?
+Another promising approach for improving CNN performance would be to design a deeper network with smaller convolutional kernel sizes. Such an architecture could help the model capture finer details and better distinguish between similar-looking gestures. However, this option was not explored in this work, as the current model already occupied 49\,MB -- very close to the 50\,MB submission limit imposed by the assignment. Increasing the network depth would exceed this limit due to the additional parameters.
 
-\end{itemize}
-}
 
 \section{Conclusion}
 \label{sec:con}
 
 The final CNN classifier was trained for 60 epochs on the entire training 
-dataset and achieved a strong test dataset accuracy of x\%. In comparison, 
+dataset and achieved a strong test dataset accuracy of 96.25\%. In comparison, 
 the SVM classifier reached a respectable y\%. While SVMs can be a viable 
 alternative to CNNs for small multi-label classification tasks -- especially 
 those involving few classes, small image sizes, and moderate amounts of 
 data such as the MNIST dataset -- they do not scale as effectively as CNNs 
-to larger images with many classes. This limitation persists even after 
+to big data sets with large images and many classes. This limitation persists even after 
 dimensionality reduction with PCA, whereas learning compact representations 
 with a convolutional autoencoder may provide feature spaces in which SVMs remain competitive.
 
-
-{\color{blue}
-
-  \begin{itemize}
-  \item Finally, describe the test-set performance you achieved. Do not
-    optimize your method based on the test set performance!
-  \item Write a 5-10 line paragraph describing the main takeaway of your project.
-  \end{itemize}
-
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

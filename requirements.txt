@@ -1,4 +1,5 @@
 # Use the PyTorch CUDA 12.1 index only for the torch packages
+# uncomment for gpu support
 # --extra-index-url https://download.pytorch.org/whl/cu121
 
 # torch==2.1.1+cu121
@@ -8,10 +9,11 @@
 torch
 torchvision
 numpy
-opencv-python
 matplotlib
-scikit-learn
-pandas
-ipykernel
+numpy==1.22.4
+scikit-learn==1.3.2
+opencv-python
 opencv-contrib-python
 seaborn
+pandas
+ipykernel

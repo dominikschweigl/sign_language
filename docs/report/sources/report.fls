@@ -536,11 +536,11 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmrc7t.tfm
-INPUT ../images/cm_comparison.jpg
-INPUT ../images/cm_comparison.jpg
-INPUT ../images/cm_comparison.jpg
-INPUT ../images/cm_comparison.jpg
-INPUT ../images/cm_comparison.jpg
+INPUT ../images/cm_comparison.png
+INPUT ../images/cm_comparison.png
+INPUT ../images/cm_comparison.png
+INPUT ../images/cm_comparison.png
+INPUT ../images/cm_comparison.png
 INPUT ../images/class_accuracy_cnn.png
 INPUT ../images/class_accuracy_cnn.png
 INPUT ../images/class_accuracy_cnn.png
