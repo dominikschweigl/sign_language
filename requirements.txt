@@ -1,10 +1,12 @@
 # Use the PyTorch CUDA 12.1 index only for the torch packages
---extra-index-url https://download.pytorch.org/whl/cu121
+# --extra-index-url https://download.pytorch.org/whl/cu121
 
-torch==2.1.1+cu121
-torchvision==0.16.1+cu121
+# torch==2.1.1+cu121
+# torchvision==0.16.1+cu121
 
 # General packages from PyPI
+torch
+torchvision
 numpy
 opencv-python
 matplotlib
