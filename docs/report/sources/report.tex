@@ -26,6 +26,7 @@
 \usepackage{xcolor}
 \usepackage{amsmath}
 \usepackage{float}
+\usepackage{stfloats}
 
 \title{\LARGE \bf
 Introduction to Machine Learning (SS 2025)\\ Programming Project
@@ -41,7 +42,7 @@ Introduction to Machine Learning (SS 2025)\\ Programming Project
 
 
 \maketitle
-\vspace{-3em}
+\vspace{-4em}
 \thispagestyle{empty}
 \pagestyle{empty}
 
@@ -101,24 +102,12 @@ well as a multilabel support-vector-machine (SVM) classifier.
 \subsection{Data preprocessing}
 \label{subsec:preprocessing}
 
-In order to avoid the machine learning methods not account well for minority classes or
-learning wrong sign distributions or ignore minority classes and always predict the majority class
-and misleading metrics like 90\% overall precision but 0\% recall for minority classes,
-the dataset was balanced by augmenting the instances of the minority classes.
-The data was augmented using horizontal mirroring as well as 90\textdegree/$-90$\textdegree rotation based
-on how much augmentation was needed per class. The result is a dataset consisting
-of 18056 instances with frequencies in the range of 2.48\% to 3.10\%.
+To prevent the model from ignoring minority classes, learning incorrect class distributions, or producing misleading metrics, the dataset was balanced by augmenting minority class samples. Augmentation techniques included horizontal mirroring and $\pm90^\circ$ rotations, applied based on the required increase per class. This resulted in a balanced dataset of 18{,}056 instances, with class frequencies ranging from 2.48\% to 3.10\%.
+Additionally, all input images were scaled to $[0, 1]$ to improve numerical stability and prevent bias toward high-magnitude pixel values.
 
-For the CNN it was found that more data was needed to increase the accuracy of the model
-above 87\%. Therefore a dynamic data loader was implemented, which increases the
-dataset size by a specified factor using random augmentation of 15\textdegree rotation,
-horizontal mirroring, and random scaling between 80\% to 100\%. For the following
-a factor of 2 was used resulting in a dataset of 36112 instances with unchanged frequencies.
+For the CNN, additional data was needed to exceed 87\% accuracy. Therefore, a dynamic data loader was implemented, which expands the dataset by a specified factor using random augmentations: $\pm15^\circ$ rotations, horizontal flips, and random scaling between 80\% and 100\%. A factor of 2 was used in this study, yielding 36{,}112 training instances while preserving class distribution.
 
-For the SVM classifier it was found necessary to scale the image values by $\frac{1}{255}$
-to obtain features in the range $[0,1]$ for numerical stability. Furthermore, it was found that it is not feasible for SVMs to work with high dimensional inputs
-like our image dataset. Hence, PCA preprocessing with 200 components was applied to the images for the
-SVM classifier in order to retain 90\% explained variance.
+For the SVM classifier, the high dimensionality of the image data made direct training infeasible. Therefore, PCA with 200 components was applied, retaining 90\% of the explained variance.
 
 \subsection{Classifier architecture}
 \label{subsec:architecture}
@@ -127,17 +116,13 @@ A convolutional neural network (CNN) was chosen for this task due to its effecti
 
 The architecture begins with convolutional layers that apply small filters (kernels) to detect local patterns such as edges and textures. As training progresses, these kernels learn to extract features relevant to the classification task. Pooling layers reduce the spatial dimensions of feature maps, lowering computational cost and making the model more robust to translations. Max pooling, which selects the maximum value in each region, is commonly used.
 
-At the end, fully connected layers aggregate the high-level features and map them to output classes. The chosen CNN consists of three convolutional layers (each followed by 2×2 max pooling) and two fully connected layers. This structure enables the model to learn hierarchical features from the 128×128 input and classify them into 36 categories.
+At the end, fully connected layers aggregate the high-level features and map them to output classes. The chosen CNN consists of three convolutional layers (each followed by 2×2 max pooling) and two fully connected layers. 
 
-The support vector machine (SVM), implemented via sklearn.svm.SVC, was chosen for its ability to maximize the soft margin between classes, offering robustness to outliers and irrelevant features—particularly useful with high-dimensional, PCA-transformed image data. SVMs generalize better than logistic regression when classes aren't linearly separable, thanks to kernel functions like linear, polynomial, and RBF, which enable non-linear decision boundaries via the kernel trick.
+The support vector machine (SVM), implemented via sklearn.svm.SVC, was chosen for its ability to maximize the soft margin between classes. SVMs generalize better than logistic regression when classes aren't linearly separable by using kernel functions, which enable non-linear decision boundaries via the kernel trick.
 
 SVMs separate classes by finding the hyperplane that maximizes the margin defined by the nearest data points (support vectors). Multi-class classification is handled using one-vs-rest or one-vs-one strategies, both supported by scikit-learn. For $K$ classes, one-vs-one creates $\frac{K*(K-1)}{2}$ binary classifiers, with predictions made via majority voting.
 
-SVMs minimize hinge loss:
-
-\[
-  \mathcal{L}_{hinge} = \max(0, 1 - y \cdot f(\mathbf{x}))
-\]
+SVMs minimize hinge loss: $\mathcal{L}_{hinge} = \max(0, 1 - y \cdot f(\mathbf{x})) $
 where $f(\mathbf{x}) = \mathbf{w}^\top \mathbf{x} + b$ and $y \in \{0, 1\}$. Compared to log-loss used in logistic regression, hinge loss penalizes misclassifications less aggressively, making SVMs more robust to outliers.
 
 Another approch was using an Autoencoder, but this did not give any accuracy boosts and was just more complex, than the CNN network.
@@ -151,9 +136,6 @@ was defined. Across 60 trials per classifier hyperparameters are uniformly sampl
 to the defined bounds, which are used to train a model on the dataset. The model is
 evaluated using validation set and the best set of hyperparameters is selected
 based on the resulting models performance.
-For The Hyperparameter optimization of the CNN classifier the maximum training epochs
-were set to 10 and it was performed on the dataset without additional augmentation due
-to time constraints.
 
 For the CNN classifier, random search was performed with a maximum of 40 training epochs.
 Early stopping was applied with a patience of 5 epochs, requiring a minimum improvement in
@@ -166,6 +148,25 @@ For the SVM classifier scikit-learns support vector classifier sklearn.svm.SVC w
 The choice of the multi-class decision scheme OvO and OvR as well as the kernel function,
 the regularization parameter $C$, the kernel coefficient $\gamma$, and for the
 polynomial kernel the degree $d$ and the bias term $coef0$ were examined.
+
+\begin{table*}[b]
+  \centering
+  \begin{tabular}{|l|c|c|c|c|c|c|c|}
+    \hline
+    CNN & $B$ & $l_R$ & $k$ & $n_h$ & $C_c$ & $d$ & $f_A$ \\
+    \hline
+    Bounds & $[8,128]$ & $[0.0001, 0.01]$ & $\{\text{3\texttimes3}, \text{5\texttimes5}\}$ & $[128,384]$ & $\{[16,32,64],[32,64,128],[48,96,192]\}$ & $[0.2,0.5]$ & $\{\text{ReLU}, \text{Sigmoid}\}$ \\
+    Selection & 64 & 0.000218 & 5\texttimes5 & 382 & [32, 64, 128] & 0.2026 & ReLU\\
+    \hline
+    SVM & $C$ & $\gamma$ & $d$ & coef0 & Kernel & \multicolumn{2}{c|}{multi-class decision scheme} \\
+    \hline
+    Bounds & [0.01, 1000] & [0.0001, 0.1] & [2, 4] & [0, 1] & \{Linear, Poly, RBF\} & \multicolumn{2}{c|}{\{OvO, OvR\}} \\
+    Selection & 6 & 0.01 & 3 & 1 & Poly & \multicolumn{2}{c|}{OvR} \\
+    \hline
+  \end{tabular}
+  \caption{Hyperparameter Selection for the CNN and SVM classifier.}
+  \label{fig:hyperparameter_selection}
+\end{table*}
 
 \section{Results}
 \label{sec:results}
@@ -185,7 +186,7 @@ The final accuracies are shown in Table~\ref{tab:classifier_accuracy}.
     CNN \& AE & 84.90\%   & 82.41\%        & 85.21\%  \\
     \hline
   \end{tabular}
-  \caption{Final classifier accuracy on training, validation, and testing.}
+  \caption{Final model accuracy on training, validation, and testing.}
   \label{tab:classifier_accuracy}
 \end{table}
 
@@ -223,7 +224,7 @@ For the CNN classifier, performance gains were primarily driven by dataset expan
 
 The final CNN classifier was trained for 60 epochs on the entire training
 dataset and achieved a strong test dataset accuracy of 96.25\%. In comparison,
-the SVM classifier reached a respectable y\%. While SVMs can be a viable
+the SVM classifier reached a respectable 85.21\%. While SVMs can be a viable
 alternative to CNNs for small multi-label classification tasks -- especially
 those involving few classes, small image sizes, and moderate amounts of
 data such as the MNIST dataset -- they do not scale as effectively as CNNs
