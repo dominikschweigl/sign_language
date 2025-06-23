@@ -116,7 +116,7 @@ A convolutional neural network (CNN) was chosen for this task due to its effecti
 
 The architecture begins with convolutional layers that apply small filters (kernels) to detect local patterns such as edges and textures. As training progresses, these kernels learn to extract features relevant to the classification task. Pooling layers reduce the spatial dimensions of feature maps, lowering computational cost and making the model more robust to translations. Max pooling, which selects the maximum value in each region, is commonly used.
 
-At the end, fully connected layers aggregate the high-level features and map them to output classes. The chosen CNN consists of three convolutional layers (each followed by 2×2 max pooling) and two fully connected layers. 
+At the end, fully connected layers aggregate the high-level features and map them to output classes. The chosen CNN consists of three convolutional layers (each followed by 2×2 max pooling) and two fully connected layers.
 
 The support vector machine (SVM), implemented via sklearn.svm.SVC, was chosen for its ability to maximize the soft margin between classes. SVMs generalize better than logistic regression when classes aren't linearly separable by using kernel functions, which enable non-linear decision boundaries via the kernel trick.
 
@@ -153,15 +153,15 @@ polynomial kernel the degree $d$ and the bias term $coef0$ were examined.
   \centering
   \begin{tabular}{|l|c|c|c|c|c|c|c|}
     \hline
-    CNN & $B$ & $l_R$ & $k$ & $n_h$ & $C_c$ & $d$ & $f_A$ \\
+    CNN       & $B$          & $l_R$            & $k$                                            & $n_h$       & $C_c$                                    & $d$                                              & $f_A$                             \\
     \hline
-    Bounds & $[8,128]$ & $[0.0001, 0.01]$ & $\{\text{3\texttimes3}, \text{5\texttimes5}\}$ & $[128,384]$ & $\{[16,32,64],[32,64,128],[48,96,192]\}$ & $[0.2,0.5]$ & $\{\text{ReLU}, \text{Sigmoid}\}$ \\
-    Selection & 64 & 0.000218 & 5\texttimes5 & 382 & [32, 64, 128] & 0.2026 & ReLU\\
+    Bounds    & $[8,128]$    & $[0.0001, 0.01]$ & $\{\text{3\texttimes3}, \text{5\texttimes5}\}$ & $[128,384]$ & $\{[16,32,64],[32,64,128],[48,96,192]\}$ & $[0.2,0.5]$                                      & $\{\text{ReLU}, \text{Sigmoid}\}$ \\
+    Selection & 64           & 0.000218         & 5\texttimes5                                   & 382         & [32, 64, 128]                            & 0.2026                                           & ReLU                              \\
     \hline
-    SVM & $C$ & $\gamma$ & $d$ & coef0 & Kernel & \multicolumn{2}{c|}{multi-class decision scheme} \\
+    SVM       & $C$          & $\gamma$         & $d$                                            & coef0       & Kernel                                   & \multicolumn{2}{c|}{multi-class decision scheme}                                     \\
     \hline
-    Bounds & [0.01, 1000] & [0.0001, 0.1] & [2, 4] & [0, 1] & \{Linear, Poly, RBF\} & \multicolumn{2}{c|}{\{OvO, OvR\}} \\
-    Selection & 6 & 0.01 & 3 & 1 & Poly & \multicolumn{2}{c|}{OvR} \\
+    Bounds    & [0.01, 1000] & [0.0001, 0.1]    & [2, 4]                                         & [0, 1]      & \{Linear, Poly, RBF\}                    & \multicolumn{2}{c|}{\{OvO, OvR\}}                                                    \\
+    Selection & 6            & 0.01             & 3                                              & 1           & Poly                                     & \multicolumn{2}{c|}{OvR}                                                             \\
     \hline
   \end{tabular}
   \caption{Hyperparameter Selection for the CNN and SVM classifier.}
@@ -179,11 +179,11 @@ The final accuracies are shown in Table~\ref{tab:classifier_accuracy}.
   \centering
   \begin{tabular}{|l|c|c|c|}
     \hline
-              & Train set & Validation set & Test set \\
+             & Train set & Validation set & Test set \\
     \hline
-    CNN       & 98.89\%   & 98.56\%        & 96.25\%  \\
-    SVM       & 97.76\%   & 87.62\%        & 85.21\%  \\
-    AE \& NN & 84.90\%   & 82.41\%        & 85.21\%  \\
+    CNN      & 98.89\%   & 98.56\%        & 96.25\%  \\
+    SVM      & 97.76\%   & 87.62\%        & 85.21\%  \\
+    AE \& NN & 84.94\%   & 81.20\%        & 81.99\%  \\
     \hline
   \end{tabular}
   \caption{Final model accuracy on training, validation, and testing.}
